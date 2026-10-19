@@ -1,0 +1,5 @@
+.env
+.env.*
+*Zugangsdaten*
+*credentials*
+*chat-tokens*

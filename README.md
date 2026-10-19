@@ -1,17 +1,26 @@
-# DAS BÜRO · Geschützter Zugang 05
+# DAS BÜRO · Update 06
 
-Der gesamte Inhalt der Website, Fotos und Spiel liegen AES-256-GCM-verschlüsselt in index.html. Sechs persönliche Passwörter öffnen denselben Inhalt. Passwörter stehen nicht im Website-Paket. Die Schlüssel werden mit PBKDF2-SHA-256 und 600000 Durchläufen abgeleitet. HTTPS und ein aktueller Browser sind erforderlich.
+## Auf GitHub hochladen
+Den Inhalt dieses Pakets direkt auf die oberste Ebene des Repositorys hochladen und die bisherigen Dateien ersetzen. index.html und buero-config.json müssen dort nebeneinander liegen. assets und games enthalten schützende Ersatzdateien für die früheren direkten Foto- und Spiel-URLs. Nach der Pages-Veröffentlichung die Seite vollständig neu laden.
 
-## Auf GitHub ersetzen
+Die sechs bestehenden Namen und Passwörter bleiben gültig. Zusätzlich gibt es den gemeinsamen Zugang Gast; sein Passwort wird separat weitergegeben. Nach der Anmeldung führt der sichtbare Link Teamchat sowie Menü > Teamchat in die Kaffeeküche. Nachrichten werden im gemeinsamen Supabase-Projekt gespeichert und regelmässig aktualisiert. Enter sendet, Shift + Enter setzt eine neue Zeile. Es gibt einen gemeinsamen Raum für das Team und Gäste.
 
-Den gesamten Inhalt dieses Ordners direkt auf die oberste Repository-Ebene hochladen und vorhandene Dateien ersetzen. index.html, app.js, style.css, assets und games gehören auf diese Ebene. Alle Ersatzdateien sind notwendig: Sie überschreiben die bisherigen unverschlüsselten Fotos und die separate Spiel-Datei. Weitere, selbst angelegte Kopien alter Fotos oder HTML-Dateien ebenfalls entfernen. Repository privat lassen. Nach erfolgreicher Pages-Veröffentlichung vollständig neu laden.
+## Spiel v0.9
+All attempts zeigt ab jetzt jeden gestarteten Levelversuch: abgeschlossen, oberhalb PAR, neu gestartet oder unterbrochen. Ein Versuch beginnt mit der ersten Spielaktion. Jeder Schritt wird lokal gesichert; zusätzlich gibt es einen regelmässigen Zwischenstand. Bei einer Unterbrechung bleiben die bisherigen Aufgaben und Schritte erhalten. Die Liste hat keine feste Anzahlgrenze; für Gerätesicherungen gibt es einen JSON-Export.
 
-Die alten externen Foto-URLs enthalten danach nur ein leeres Pixel, der alte Spiel-Link führt zur Anmeldung. Bereits heruntergeladene Kopien können nicht zurückgerufen werden.
+Die Synchronisierung zum gemeinsamen Speicher läuft während des Spiels. Bei Verbindungsausfällen bleiben ausstehende Versuche lokal gespeichert und werden bei erneutem Öffnen des Spiels mit demselben persönlichen Zugang nachgereicht. Der jeweilige Versuch bleibt dem ursprünglichen Zugang zugeordnet. Best Of berücksichtigt auch Personen mit weniger als zehn abgeschlossenen Levels. Nach Anzahl abgeschlossener Levels entscheiden Zeit und Schritte. PAR bleibt die Bedingung, um das nächste Level freizuschalten.
 
-## Anmeldung
+In Alias-Feldern werden Spielbefehle ausgesetzt. Alle Buchstaben, Leerzeichen und normale Bearbeitungstasten funktionieren. Vorhandene Bestzeiten und Level-Freischaltungen bleiben auf demselben Gerät erhalten. Frühere, damals nicht gespeicherte Fehlversuche lassen sich nicht nachträglich rekonstruieren.
 
-Vollständigen Vor- und Nachnamen sowie das persönliche Passwort eingeben. Gross-/Kleinschreibung und Akzente sind beim Namen tolerant. Passwörter müssen exakt stimmen. Jede Person kann die ganze Website öffnen. Neuladen und Abmelden sperren sie wieder. Keine Passwörter in dieses Repository hochladen.
+## Zugang und Suchmaschinen
+Die Website, Fotos und das Spiel bleiben in index.html verschlüsselt. Individuelle Dienste-Zugangsschlüssel sind jeweils separat mit dem persönlichen Passwort verschlüsselt. Passwörter und unverschlüsselte Dienste-Schlüssel stehen nicht im Website-Paket.
 
-## Grenzen
+Die Anmeldung und der Inhalt enthalten noindex. Der direkte Link funktioniert weiterhin. Suchmaschinen-Ausschluss ist keine Garantie, dass niemand die URL entdeckt.
 
-Dies sind individuelle Entschlüsselungszugänge für eine statische Website, keine serververwalteten Benutzerkonten. Kontenverwaltung, Passwortänderungen und gemeinsamer Chat benötigen einen späteren Ausbau. Zum Sperren eines Zugangs muss eine neue Version mit neuem Inhaltsschlüssel erzeugt werden. Bereits erhaltene Inhalte bleiben der jeweiligen Person bekannt. Der Chat bleibt als Vorschau gekennzeichnet. Spielstand und Bestenliste sind lokal, bis ein Online-Dienst verbunden wird. Die frühere Sites-Vorschau wird durch diesen GitHub-Export nicht verändert.
+## Für die Verwaltung
+buero-config.json enthält ausschliesslich die öffentliche Adresse des bereitgestellten Dienstes. Sie ist bereits eingerichtet. Keine geheimen Supabase-Schlüssel, Passwörter oder Zugangsdaten-Dateien auf GitHub hochladen.
+
+Die Serverquellen werden separat aufbewahrt. Mitarbeiter können im Dienst gesperrt werden; bereits heruntergeladene Website-Inhalte lassen sich dadurch nicht zurückrufen. Zum Ändern des Website-Zugangs ist eine neu verschlüsselte Version erforderlich.
+
+## Prüfung
+Alle sechs bestehenden Passwörter und die Ablehnung falscher Passwörter wurden geprüft. Der laufende Dienst wurde mit allen sechs Zugängen geprüft. Nachrichtenaustausch, Wiederholung ohne Duplikat, serverseitige Absenderzuordnung, Speicherung unvollständiger Versuche und Rangliste für Teilkampagnen bestanden den Test. Temporäre Testdaten wurden anschliessend gelöscht. Ein vollständiger visueller Browsertest war in dieser Umgebung nicht verfügbar.
